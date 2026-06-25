@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=comprimé
+GenericName=Video Compressor
+Comment=Compress and re-encode video files
+Categories=AudioVideo;Video;AudioVideoEditing;GTK;
+Keywords=video;compress;reencode;ffmpeg;convert;
+Exec=comprime %F
+Icon=fr.benjaminbellamy.comprime
+Terminal=false
+Type=Application
+StartupNotify=true
+MimeType=video/mp4;video/x-matroska;video/quicktime;video/x-msvideo;video/webm;video/mpeg;video/x-flv;video/3gpp;

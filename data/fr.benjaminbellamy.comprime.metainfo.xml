@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>fr.benjaminbellamy.comprime</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0-or-later</project_license>
+  <name>comprimé</name>
+  <summary>Compress and re-encode video files</summary>
+  <description>
+    <p>
+      comprimé re-encodes video files with ffmpeg to produce smaller, widely
+      compatible H.264/AAC MP4 files. Open one or several videos at once, pick a
+      quality level, and comprimé writes a re-encoded copy next to each original.
+    </p>
+    <p>Features:</p>
+    <ul>
+      <li>Batch re-encoding of multiple files</li>
+      <li>Quality presets from default (CRF) to extra low bitrate</li>
+      <li>Per-file progress</li>
+    </ul>
+  </description>
+  <launchable type="desktop-id">fr.benjaminbellamy.comprime.desktop</launchable>
+  <url type="homepage">https://github.com/benjaminbellamy/comprime</url>
+  <url type="bugtracker">https://github.com/benjaminbellamy/comprime/issues</url>
+  <categories>
+    <category>AudioVideo</category>
+    <category>Video</category>
+  </categories>
+  <screenshots>
+    <screenshot type="default">
+      <caption>The empty start screen — open or drop videos to re-encode</caption>
+      <image>https://raw.githubusercontent.com/benjaminbellamy/comprime/main/Screenshot_01.png</image>
+    </screenshot>
+    <screenshot>
+      <caption>Re-encoding a video with live progress and estimated finish time</caption>
+      <image>https://raw.githubusercontent.com/benjaminbellamy/comprime/main/Screenshot_02.png</image>
+    </screenshot>
+  </screenshots>
+  <content_rating type="oars-1.1" />
+  <releases>
+    <release version="0.1.0" date="2026-06-24">
+      <description>
+        <p>First release.</p>
+      </description>
+    </release>
+  </releases>
+  <developer id="fr.benjaminbellamy">
+    <name>Benjamin Bellamy</name>
+  </developer>
+</component>

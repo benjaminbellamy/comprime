@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <enum id="fr.benjaminbellamy.comprime.Quality">
+    <value nick="default" value="0"/>
+    <value nick="high" value="1"/>
+    <value nick="medium" value="2"/>
+    <value nick="low" value="3"/>
+    <value nick="extra-low" value="4"/>
+  </enum>
+  <schema id="fr.benjaminbellamy.comprime" path="/fr/benjaminbellamy/comprime/">
+    <key name="quality" enum="fr.benjaminbellamy.comprime.Quality">
+      <default>'default'</default>
+      <summary>Selected encoding quality</summary>
+      <description>The quality level last selected by the user.</description>
+    </key>
+    <key name="window-width" type="i">
+      <default>520</default>
+      <summary>Window width</summary>
+      <description>The last saved window width.</description>
+    </key>
+    <key name="window-height" type="i">
+      <default>600</default>
+      <summary>Window height</summary>
+      <description>The last saved window height.</description>
+    </key>
+  </schema>
+</schemalist>

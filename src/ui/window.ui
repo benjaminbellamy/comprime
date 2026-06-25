@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="Adw" version="1.6"/>
+  <menu id="primary_menu">
+    <section>
+      <item>
+        <attribute name="label">_About comprimé</attribute>
+        <attribute name="action">app.about</attribute>
+      </item>
+      <item>
+        <attribute name="label">_Quit</attribute>
+        <attribute name="action">app.quit</attribute>
+      </item>
+    </section>
+  </menu>
+  <object class="GtkStringList" id="quality_model">
+    <items>
+      <item>Default</item>
+      <item>High quality</item>
+      <item>Medium quality</item>
+      <item>Low quality</item>
+      <item>Extra low quality</item>
+    </items>
+  </object>
+  <template class="ComprimeWindow" parent="AdwApplicationWindow">
+    <property name="title">comprimé</property>
+    <property name="default-width">520</property>
+    <property name="default-height">600</property>
+    <property name="content">
+      <object class="AdwToolbarView">
+        <child type="top">
+          <object class="AdwHeaderBar">
+            <child type="start">
+              <object class="GtkButton" id="open_button">
+                <property name="action-name">win.open</property>
+                <property name="tooltip-text">Open video files</property>
+                <child>
+                  <object class="AdwButtonContent">
+                    <property name="icon-name">list-add-symbolic</property>
+                    <property name="label">Open</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child type="end">
+              <object class="GtkMenuButton">
+                <property name="icon-name">open-menu-symbolic</property>
+                <property name="menu-model">primary_menu</property>
+                <property name="tooltip-text">Main Menu</property>
+                <property name="primary">true</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <property name="content">
+          <object class="GtkStack" id="stack">
+            <property name="transition-type">crossfade</property>
+            <child>
+              <object class="GtkStackPage">
+                <property name="name">empty</property>
+                <property name="child">
+                  <object class="AdwStatusPage" id="status_page">
+                    <property name="icon-name">video-x-generic-symbolic</property>
+                    <property name="title">No videos yet</property>
+                    <property name="description">Open or drop video files to re-encode them.</property>
+                    <property name="child">
+                      <object class="GtkButton">
+                        <property name="halign">center</property>
+                        <property name="action-name">win.open</property>
+                        <property name="label">Open Files…</property>
+                        <style>
+                          <class name="pill"/>
+                          <class name="suggested-action"/>
+                        </style>
+                      </object>
+                    </property>
+                  </object>
+                </property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkStackPage">
+                <property name="name">files</property>
+                <property name="child">
+                  <object class="AdwPreferencesPage">
+                    <child>
+                      <object class="AdwPreferencesGroup">
+                        <child>
+                          <object class="AdwComboRow" id="quality_row">
+                            <property name="title">Quality</property>
+                            <property name="subtitle">Higher quality produces larger files.</property>
+                            <property name="model">quality_model</property>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="AdwPreferencesGroup" id="files_group">
+                        <property name="title">Files</property>
+                      </object>
+                    </child>
+                  </object>
+                </property>
+              </object>
+            </child>
+          </object>
+        </property>
+        <child type="bottom">
+          <object class="GtkActionBar" id="action_bar">
+            <property name="revealed">false</property>
+            <child type="end">
+              <object class="GtkButton" id="compress_button">
+                <property name="label">Compress</property>
+                <property name="action-name">win.compress</property>
+                <style>
+                  <class name="suggested-action"/>
+                </style>
+              </object>
+            </child>
+            <child type="end">
+              <object class="GtkButton" id="cancel_button">
+                <property name="label">Cancel</property>
+                <property name="action-name">win.cancel</property>
+                <property name="visible">false</property>
+                <style>
+                  <class name="destructive-action"/>
+                </style>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </property>
+  </template>
+</interface>

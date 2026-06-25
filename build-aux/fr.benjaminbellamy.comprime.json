@@ -1,0 +1,70 @@
+{
+    "app-id": "fr.benjaminbellamy.comprime",
+    "runtime": "org.gnome.Platform",
+    "runtime-version": "49",
+    "sdk": "org.gnome.Sdk",
+    "command": "comprime",
+    "finish-args": [
+        "--share=ipc",
+        "--socket=wayland",
+        "--socket=fallback-x11",
+        "--device=dri",
+        "--filesystem=host"
+    ],
+    "cleanup": [
+        "/include",
+        "/lib/pkgconfig",
+        "/share/man",
+        "/share/doc",
+        "*.a",
+        "*.la"
+    ],
+    "modules": [
+        {
+            "name": "x264",
+            "config-opts": [
+                "--enable-shared",
+                "--enable-pic",
+                "--disable-cli"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://code.videolan.org/videolan/x264.git",
+                    "branch": "stable"
+                }
+            ]
+        },
+        {
+            "name": "ffmpeg",
+            "config-opts": [
+                "--enable-gpl",
+                "--enable-libx264",
+                "--enable-encoder=libx264,aac",
+                "--enable-decoder=*",
+                "--enable-demuxer=*",
+                "--enable-parser=*",
+                "--disable-doc",
+                "--disable-static",
+                "--enable-shared"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://git.ffmpeg.org/ffmpeg.git",
+                    "tag": "n7.1"
+                }
+            ]
+        },
+        {
+            "name": "comprime",
+            "buildsystem": "meson",
+            "sources": [
+                {
+                    "type": "dir",
+                    "path": ".."
+                }
+            ]
+        }
+    ]
+}
