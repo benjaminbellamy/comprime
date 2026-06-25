@@ -8,6 +8,12 @@
 > 1. (medicine) pill, tablet
 > 2. compressed
 
+## Installation
+
+```sh
+curl -L -o /tmp/comprime-1.0.0.flatpak https://github.com/benjaminbellamy/comprime/releases/download/v1.0.0/comprime-1.0.0.flatpak && flatpak install --user /tmp/comprime-1.0.0.flatpak
+```
+
 **comprimé** compresses (re-encodes) video files using `ffmpeg`. Open one or several
 videos at once, choose a quality level, and comprimé writes a re-encoded copy next to
 each original (`movie.mp4` becomes `movie_reencoded.mp4`).
@@ -43,16 +49,6 @@ to a target bitrate:
 | Medium quality    | 4M             | 192k           |
 | Low quality       | 2M             | 128k           |
 | Extra low quality | 1M             | 96k            |
-
-## Installation
-
-Once published, comprimé installs from its Flatpak bundle:
-
-```sh
-flatpak install fr.benjaminbellamy.comprime
-```
-
-(The published Flathub / GitHub release is not available yet.)
 
 ## Building
 
