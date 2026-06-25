@@ -1,7 +1,7 @@
 namespace Comprime {
 
     public const string APP_ID = "fr.benjaminbellamy.comprime";
-    public const string VERSION = "0.1.0";
+    public const string VERSION = "1.0.0";
 
     public class Application : Adw.Application {
 
